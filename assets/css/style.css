@@ -159,6 +159,28 @@ a:hover {
   margin: 0;
 }
 
+.imagen{
+ display: flex;
+ justify-content: center;
+
+}
+
+.swiper-wrapper1 img {
+  width: 351px; 
+  margin: 0 10px; 
+}
+
+.swiper-wrapper1{
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .imagen {
+    display: none;
+  }
+}
+
 /*------/ Nav Pills  /------*/
 .nav-pills-a {
   text-decoration: none;
