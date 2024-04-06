@@ -1,0 +1,28 @@
+[
+    {
+        "id": "1",
+        "nombre": "D´perlas",
+        "imagen": "https://www.bisuteriadperlas.com/web/image/res.company/1/logo"
+    },
+    {
+        "id": "2",
+        "nombre": "Ekrea",
+        "imagen": "https://ekreaeltaller.com/wp-content/uploads/2023/02/ekrea-1200.jpg"
+    },
+    {
+        "id": "3",
+        "nombre": "Casacomfort",
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2mwtBDgIQF0TpvJrT8qZFAGnS6-Xo2BBU3kNRvQIDuQ&s"
+    },
+    {
+        "id": "4",
+        "nombre": "MAORI",
+        "imagen": "https://scontent.fsyq2-1.fna.fbcdn.net/v/t39.30808-6/300777136_469528811849677_1136516747270294653_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=YSj0WFKMnd8Ab59IKW2&_nc_ht=scontent.fsyq2-1.fna&oh=00_AfA5TxDYQ0dUNxYBO_QtptLPJpG0s71uouLD7beoSz2F2w&oe=6616623B"
+    },
+    {
+        "id": "5",
+        "nombre": "Studio Bijoux",
+        "imagen": "https://static.wixstatic.com/media/0fe7d9_075b43665bde45f9acd58a2afe128fd7.jpg"
+    }
+
+]
