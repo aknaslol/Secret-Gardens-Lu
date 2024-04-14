@@ -9,6 +9,21 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="assets/js/logica.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.intro-single, .img-box-b, .card-box-b, .widget-a, .section-footer').css('opacity', 0);
+
+      $('.intro-single, .img-box-b, .card-box-b, .widget-a, .section-footer').each(function(i) {
+        $(this).delay(300 * i).animate({ 'opacity': '1' }, 600);
+      });
+    });
+  </script>
+  
+
   <!-- Favicons -->
   <link href="assets/img/logo pagina.png" rel="icon">
   <link href="assets/img/logo pagina.png" rel="apple-touch-icon">
@@ -24,6 +39,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: EstateAgency
@@ -322,9 +338,9 @@
             <div class="w-body-a">
               <p class="w-text-a color-text-a">Recibe nuestras últimas novedades, promociones y ofertas especiales
                 directamente en tu bandeja de entrada.</p>
-              <form action="#" method="post" class="subscribe">
+              <form action="#" method="post" class="subscribe" id="correoSub">
                 <div class="input-group">
-                  <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
+                  <input type="email" class="form-control" id="emailSub" placeholder="Tu correo electrónico">
                   <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">Suscribirse</button>
                   </div>

@@ -9,6 +9,20 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="assets/js/alerta.js"></script>
+  <script src="assets/js/logica.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.intro, .section-services, .section-property, .section-news, .section-footer').hide();
+  
+      $('.intro, .section-services, .section-property, .section-news, .section-footer').fadeIn(1000);
+    });
+  </script>
+
+
   <!-- Favicons -->
   <link href="assets/img/logo pagina.png" rel="icon">
   <link href="assets/img/logo pagina.png" rel="apple-touch-icon">
@@ -501,22 +515,41 @@
           <div class="col-md-12">
             <div class="title-wrap d-flex justify-content-between">
               <div class="title-box">
-                <h2 class="title-a">Marcas</h2>
+                <h2 class="title-a">Marcas</h2>          
               </div>
             </div>
           </div>
-        </div>
+        </div>     
     </section>
 
     <div class="marcas">
       <div class="container-fluid">
         <div class="swiper">
           <div class="swiper-wrapper1">
-            <!-- Aquí se cargarán dinámicamente las imágenes del carrusel -->
+            <!-- Aquí se cargarán las imágenes de la API -->
           </div>
         </div>
       </div>
-    </div>
+    </div>  
+ 
+        <!-- ======= Tendencias ======= -->
+        <section class="section-news section-t8">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="title-wrap d-flex justify-content-between">
+                  <div class="title-box">
+                    <h2 class="title-a">Tendencias</h2>   
+                  </div>
+                </div>
+              </div>
+            </div>     
+          </div>
+        </section>
+
+        <div class="container-fluid embed-responsive">
+          <iframe class="embed-responsive-item" id="video" src="https://www.youtube.com/embed/Z0_I3uHlTtc" frameborder="0" allowfullscreen></iframe>    
+        </div>
 
 
     <!-- ======= Testimonials Section ======= -->
@@ -669,9 +702,9 @@
             <div class="w-body-a">
               <p class="w-text-a color-text-a">Recibe nuestras últimas novedades, promociones y ofertas especiales
                 directamente en tu bandeja de entrada.</p>
-              <form action="#" method="post" class="subscribe">
+              <form action="#" method="post" class="subscribe" id="correoSub">
                 <div class="input-group">
-                  <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
+                  <input type="email" class="form-control" id="emailSub" placeholder="Tu correo electrónico">
                   <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">Suscribirse</button>
                   </div>
@@ -730,7 +763,6 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/js/api.js"></script>
-
 
 
 

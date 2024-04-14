@@ -9,6 +9,11 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="assets/js/logica.js"></script>
+
   <!-- Favicons -->
   <link href="assets/img/logo pagina.png" rel="icon">
   <link href="assets/img/logo pagina.png" rel="apple-touch-icon">
@@ -106,14 +111,14 @@
             </nav>
           </div>
         </div>
-      </div> 
+      </div>
       <div class="container-fluid">
         <div class="imagen">
           <a class="imagen" href="#">
             <img class="" src="assets/img/producto2.jpeg" alt="" width="30%">
           </a>
         </div>
-      </div>             
+      </div>
     </section><!-- End Intro Single-->
 
     <!-- ======= Property Single ======= -->
@@ -208,121 +213,122 @@
 
   </main><!-- End #main -->
 
- <!-- ======= Footer ======= -->
- <section class="section-footer">
-  <div class="container">
+  <!-- ======= Footer ======= -->
+  <section class="section-footer">
+    <div class="container">
       <div class="row">
-          <div class="col-sm-12 col-md-4">
-              <div class="widget-a">
-                  <div class="w-header-a">
-                      <h3 class="w-title-a text-brand">Secret Garden´s Lu</h3>
-                  </div>
-                  <div class="w-body-a">
-                      <p class="w-text-a color-text-a">
+        <div class="col-sm-12 col-md-4">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">Secret Garden´s Lu</h3>
+            </div>
+            <div class="w-body-a">
+              <p class="w-text-a color-text-a">
 
-                          Secret Garden's Lu es una boutique de bisutería especializada en joyas únicas inspiradas
-                          en la belleza
-                          de los jardines secretos.
-                      </p>
-                  </div>
-                  <div class="w-footer-a">
-                      <ul class="list-unstyled">
-                          <li class="color-a">
-                              <span class="color-text-a">Telefóno.</span> +506 8556-7317
-                          </li>
-                          <li class="color-a">
-                              <span class="color-text-a">Email.</span> secretgardenslucontact@gmail.com
-                          </li>
-                      </ul>
-                  </div>
-              </div>
+                Secret Garden's Lu es una boutique de bisutería especializada en joyas únicas inspiradas
+                en la belleza
+                de los jardines secretos.
+              </p>
+            </div>
+            <div class="w-footer-a">
+              <ul class="list-unstyled">
+                <li class="color-a">
+                  <span class="color-text-a">Telefóno.</span> +506 8556-7317
+                </li>
+                <li class="color-a">
+                  <span class="color-text-a">Email.</span> secretgardenslucontact@gmail.com
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="col-sm-12 col-md-4 section-md-t3">
-              <div class="widget-a">
-                  <div class="w-header-a">
-                      <h3 class="w-title-a text-brand">Informacion</h3>
-                  </div>
-                  <div class="w-body-a">
-                      <div class="w-body-a">
-                          <ul class="list-unstyled">
-                              <li class="item-list-a">
-                                  <i class="bi bi-chevron-right"></i> <a href="index.html">Inicio</a>
-                              </li>
-                              <li class="item-list-a">
-                                  <i class="bi bi-chevron-right"></i> <a href="about.html">Acerca de</a>
-                              </li>
-                              <li class="item-list-a">
-                                  <i class="bi bi-chevron-right"></i> <a href="property-grid.html">Productos</a>
-                              </li>
-                              <li class="item-list-a">
-                                  <i class="bi bi-chevron-right"></i> <a href="blog-grid.html">Noticias</a>
-                              </li>
-                              <li class="item-list-a">
-                                  <i class="bi bi-chevron-right"></i> <a href="contact.html">Contacto</a>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
+        </div>
+        <div class="col-sm-12 col-md-4 section-md-t3">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">Informacion</h3>
+            </div>
+            <div class="w-body-a">
+              <div class="w-body-a">
+                <ul class="list-unstyled">
+                  <li class="item-list-a">
+                    <i class="bi bi-chevron-right"></i> <a href="index.html">Inicio</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="bi bi-chevron-right"></i> <a href="about.html">Acerca de</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="bi bi-chevron-right"></i> <a href="property-grid.html">Productos</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="bi bi-chevron-right"></i> <a href="blog-grid.html">Noticias</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="bi bi-chevron-right"></i> <a href="contact.html">Contacto</a>
+                  </li>
+                </ul>
               </div>
+            </div>
           </div>
-          <div class="col-sm-12 col-md-4 section-md-t3">
-              <div class="widget-a">
-                  <div class="w-header-a">
-                      <h3 class="w-title-a text-brand">¡Suscríbete!</h3>
+        </div>
+        <div class="col-sm-12 col-md-4 section-md-t3">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">¡Suscríbete!</h3>
+            </div>
+            <div class="w-body-a">
+              <p class="w-text-a color-text-a">Recibe nuestras últimas novedades, promociones y ofertas especiales
+                directamente en tu bandeja de entrada.</p>
+              <form action="#" method="post" class="subscribe" id="correoSub">
+                <div class="input-group">
+                  <input type="email" class="form-control" id="emailSub" placeholder="Tu correo electrónico">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Suscribirse</button>
                   </div>
-                  <div class="w-body-a">
-                      <p class="w-text-a color-text-a">Recibe nuestras últimas novedades, promociones y ofertas especiales directamente en tu bandeja de entrada.</p>
-                      <form action="#" method="post" class="subscribe">
-                          <div class="input-group">
-                              <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
-                              <div class="input-group-append">
-                                  <button class="btn btn-primary" type="submit">Suscribirse</button>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
+                </div>
+              </form>
+            </div>
           </div>
+        </div>
       </div>
-  </div>
-</section>
-<footer>
-  <div class="container">
+    </div>
+  </section>
+  <footer>
+    <div class="container">
       <div class="row">
-          <div class="col-md-12">
-              <div class="socials-a">
-                  <ul class="list-inline">
-                      <li class="list-inline-item">
-                          <a href="https://www.facebook.com/profile.php?id=100072291438360">
-                              <i class="bi bi-facebook" aria-hidden="true"></i>
-                          </a>
-                      </li>
-                      <li class="list-inline-item">
-                          <a href="https://www.instagram.com/secretslu.cr/?hl=es">
-                              <i class="bi bi-instagram" aria-hidden="true"></i>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-              <div class="copyright-footer">
-                  <p class="copyright color-text-a">
-                      &copy; Copyright
-                      <span class="color-a">Secret Garden´s Lu</span> Todos los derechos reservados.
-                  </p>
-              </div>
-              <div class="credits">
-                  <!--
+        <div class="col-md-12">
+          <div class="socials-a">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/profile.php?id=100072291438360">
+                  <i class="bi bi-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/secretslu.cr/?hl=es">
+                  <i class="bi bi-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="copyright-footer">
+            <p class="copyright color-text-a">
+              &copy; Copyright
+              <span class="color-a">Secret Garden´s Lu</span> Todos los derechos reservados.
+            </p>
+          </div>
+          <div class="credits">
+            <!--
       All the links in the footer should remain intact.
       You can delete the links only if you purchased the pro version.
       Licensing information: https://bootstrapmade.com/license/
       Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
     -->
-                  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-              </div>
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
           </div>
+        </div>
       </div>
-  </div>
-</footer><!-- End  Footer -->
+    </div>
+  </footer><!-- End  Footer -->
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

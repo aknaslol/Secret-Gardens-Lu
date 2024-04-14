@@ -13,16 +13,34 @@ function cargarImagenes() {
                 imagenMarca.src = imagen;
                 contenedor.appendChild(imagenMarca);
             });
+            slideMarcas();
         })
         .catch(error => {
             console.error('Error al obtener los datos:', error);
         });
 }
 
+//Metodo que realiza una animacion mediante un calculo de nodos con javascript.
+function slideMarcas() {
+    const slideContainer = document.querySelector('.swiper-wrapper1');
+    const images = slideContainer.querySelectorAll('img');
+    const imagesClone = Array.from(images).map(img => img.cloneNode(true));
+    const totalWidth = images.length * images[0].clientWidth;
+    let currentPosition = 0;
+
+    imagesClone.forEach(img => slideContainer.appendChild(img));
+
+    function animateSlide() {
+        currentPosition -= 1;
+        if (currentPosition <= -totalWidth) {
+            currentPosition = 0;
+        }
+        slideContainer.style.transform = `translateX(${currentPosition}px)`;
+    }
+
+    setInterval(animateSlide, 30);
+}
+
 cargarImagenes();
 
 
-
-
-
-    

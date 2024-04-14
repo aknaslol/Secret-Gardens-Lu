@@ -9,6 +9,15 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="assets/js/logica.js"></script>
+  <script src="assets/js/apigoogle.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmhmXMJ6_0T-_IuivAuzAU6GDdJ0zPbag&callback=iniciarMap"></script>
+
+
    <!-- Favicons -->
    <link href="assets/img/logo pagina.png" rel="icon">
    <link href="assets/img/logo pagina.png" rel="apple-touch-icon">
@@ -24,6 +33,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
 
   <!-- =======================================================
   * Template Name: EstateAgency
@@ -84,18 +94,18 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Contact US</h1>
-              <span class="color-text-a">Aut voluptas consequatur unde sed omnis ex placeat quis eos. Aut natus officia corrupti qui autem fugit consectetur quo. Et ipsum eveniet laboriosam voluptas beatae possimus qui ducimus. Et voluptatem deleniti. Voluptatum voluptatibus amet. Et esse sed omnis inventore hic culpa.</span>
+              <h1 class="title-single">Contactanos</h1>
+              <span class="color-text-a">¿Tienes alguna pregunta, comentario o sugerencia? ¡Nos encantaría escucharte! En Secret Garden's Lu, nos esforzamos por brindarte la mejor experiencia posible. No dudes en ponerte en contacto con nosotros!</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="index.html">Home</a>
+                  <a href="index.html">Inicio</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  Contact
+                  Contacto
                 </li>
               </ol>
             </nav>
@@ -110,48 +120,52 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="contact-map box">
-              <div id="map" class="contact-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.98731968482413!3d40.75889497932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes+Square!5e0!3m2!1ses-419!2sve!4v1510329142834" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <div class="contact-map">
+                <div class="container text-center pt-0" id="map" style="height: 450px; width: 100%;" ></div>
+                <div class="container py-5 text-center" id="distancia">
+                </div>
               </div>
             </div>
           </div>
+        </div>
           <div class="col-sm-12 section-t8">
             <div class="row">
               <div class="col-md-7">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form id="contactoFormulario" action="https://formsubmit.co/secretgardenslucontact@gmail.com" method="POST" role="form" class="php-email-form">
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <div class="form-group">
-                        <input type="text" name="name" class="form-control form-control-lg form-control-a" placeholder="Your Name" required>
+                        <input id="nombre" type="text" name="nombre" class="form-control form-control-lg form-control-a" placeholder="Nombre" required>
                       </div>
                     </div>
                     <div class="col-md-6 mb-3">
                       <div class="form-group">
-                        <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Your Email" required>
+                        <input id="email" name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Email" required>
                       </div>
                     </div>
                     <div class="col-md-12 mb-3">
                       <div class="form-group">
-                        <input type="text" name="subject" class="form-control form-control-lg form-control-a" placeholder="Subject" required>
+                        <input id="tema" type="text" name="tema" class="form-control form-control-lg form-control-a" placeholder="Tema" required>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <textarea name="message" class="form-control" name="message" cols="45" rows="8" placeholder="Message" required></textarea>
+                        <textarea id="mensaje" name="mensaje" class="form-control" name="message" cols="45" rows="8" placeholder="Mensaje" required></textarea>
                       </div>
                     </div>
-                    <div class="col-md-12 my-3">
-                      <div class="mb-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    <div class="col-md-12 mb-3">
+                      <div class="form-group">
+                        <label for="genero">Género:</label><br>
+                        <label><input type="radio" name="genero" value="masculino" required> Masculino</label>
+                        <label><input type="radio" name="genero" value="femenino" required> Femenino</label>
                       </div>
                     </div>
-
                     <div class="col-md-12 text-center">
-                      <button type="submit" class="btn btn-a">Send Message</button>
+                      <button type="submit" onclick="enviarFormulario()" class="btn btn-a">Mandar mensaje</button>
                     </div>
                   </div>
+                  <input type="hidden" name="_next" value="https://secret-gardens-lu.netlify.app/contact">
+                  <input type="hidden" name="_captcha" value="false">
                 </form>
               </div>
               <div class="col-md-5 section-md-t3">
@@ -161,14 +175,14 @@
                   </div>
                   <div class="icon-box-content table-cell">
                     <div class="icon-box-title">
-                      <h4 class="icon-title">Say Hello</h4>
+                      <h4 class="icon-title">¡Saludanos!</h4>
                     </div>
                     <div class="icon-box-content">
                       <p class="mb-1">Email.
-                        <span class="color-a">contact@example.com</span>
+                        <span class="color-a">secretgardenslucontact@gmail.com</span>
                       </p>
-                      <p class="mb-1">Phone.
-                        <span class="color-a">+54 356 945234</span>
+                      <p class="mb-1">Telefóno.
+                        <span class="color-a">+506 8556-7317</span>
                       </p>
                     </div>
                   </div>
@@ -179,12 +193,11 @@
                   </div>
                   <div class="icon-box-content table-cell">
                     <div class="icon-box-title">
-                      <h4 class="icon-title">Find us in</h4>
+                      <h4 class="icon-title">¡Encuentranos!</h4>
                     </div>
                     <div class="icon-box-content">
                       <p class="mb-1">
-                        Manhattan, Nueva York 10036,
-                        <br> EE. UU.
+                        El Roble de Alajuela 150mts norte de la Plaza del Roble.
                       </p>
                     </div>
                   </div>
@@ -195,29 +208,19 @@
                   </div>
                   <div class="icon-box-content table-cell">
                     <div class="icon-box-title">
-                      <h4 class="icon-title">Social networks</h4>
+                      <h4 class="icon-title">Redes sociales</h4>
                     </div>
                     <div class="icon-box-content">
                       <div class="socials-footer">
                         <ul class="list-inline">
                           <li class="list-inline-item">
-                            <a href="#" class="link-one">
+                            <a href="https://www.facebook.com/profile.php?id=100072291438360" class="link-one">
                               <i class="bi bi-facebook" aria-hidden="true"></i>
                             </a>
                           </li>
                           <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-twitter" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
+                            <a href="https://www.instagram.com/secretslu.cr/?hl=es" class="link-one">
                               <i class="bi bi-instagram" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-linkedin" aria-hidden="true"></i>
                             </a>
                           </li>
                         </ul>
@@ -228,134 +231,135 @@
               </div>
             </div>
           </div>
+          </div>
         </div>
       </div>
     </section><!-- End Contact Single-->
 
   </main><!-- End #main -->
 
- <!-- ======= Footer ======= -->
- <section class="section-footer">
-  <div class="container">
+  <!-- ======= Footer ======= -->
+  <section class="section-footer">
+    <div class="container">
       <div class="row">
-          <div class="col-sm-12 col-md-4">
-              <div class="widget-a">
-                  <div class="w-header-a">
-                      <h3 class="w-title-a text-brand">Secret Garden´s Lu</h3>
-                  </div>
-                  <div class="w-body-a">
-                      <p class="w-text-a color-text-a">
+        <div class="col-sm-12 col-md-4">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">Secret Garden´s Lu</h3>
+            </div>
+            <div class="w-body-a">
+              <p class="w-text-a color-text-a">
 
-                          Secret Garden's Lu es una boutique de bisutería especializada en joyas únicas inspiradas
-                          en la belleza
-                          de los jardines secretos.
-                      </p>
-                  </div>
-                  <div class="w-footer-a">
-                      <ul class="list-unstyled">
-                          <li class="color-a">
-                              <span class="color-text-a">Telefóno.</span> +506 8556-7317
-                          </li>
-                          <li class="color-a">
-                              <span class="color-text-a">Email.</span> secretgardenslucontact@gmail.com
-                          </li>
-                      </ul>
-                  </div>
-              </div>
+                Secret Garden's Lu es una boutique de bisutería especializada en joyas únicas inspiradas
+                en la belleza
+                de los jardines secretos.
+              </p>
+            </div>
+            <div class="w-footer-a">
+              <ul class="list-unstyled">
+                <li class="color-a">
+                  <span class="color-text-a">Telefóno.</span> +506 8556-7317
+                </li>
+                <li class="color-a">
+                  <span class="color-text-a">Email.</span> secretgardenslucontact@gmail.com
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="col-sm-12 col-md-4 section-md-t3">
-              <div class="widget-a">
-                  <div class="w-header-a">
-                      <h3 class="w-title-a text-brand">Informacion</h3>
-                  </div>
-                  <div class="w-body-a">
-                      <div class="w-body-a">
-                          <ul class="list-unstyled">
-                              <li class="item-list-a">
-                                  <i class="bi bi-chevron-right"></i> <a href="index.html">Inicio</a>
-                              </li>
-                              <li class="item-list-a">
-                                  <i class="bi bi-chevron-right"></i> <a href="about.html">Acerca de</a>
-                              </li>
-                              <li class="item-list-a">
-                                  <i class="bi bi-chevron-right"></i> <a href="property-grid.html">Productos</a>
-                              </li>
-                              <li class="item-list-a">
-                                  <i class="bi bi-chevron-right"></i> <a href="blog-grid.html">Noticias</a>
-                              </li>
-                              <li class="item-list-a">
-                                  <i class="bi bi-chevron-right"></i> <a href="contact.html">Contacto</a>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
+        </div>
+        <div class="col-sm-12 col-md-4 section-md-t3">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">Informacion</h3>
+            </div>
+            <div class="w-body-a">
+              <div class="w-body-a">
+                <ul class="list-unstyled">
+                  <li class="item-list-a">
+                    <i class="bi bi-chevron-right"></i> <a href="index.html">Inicio</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="bi bi-chevron-right"></i> <a href="about.html">Acerca de</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="bi bi-chevron-right"></i> <a href="property-grid.html">Productos</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="bi bi-chevron-right"></i> <a href="blog-grid.html">Noticias</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="bi bi-chevron-right"></i> <a href="contact.html">Contacto</a>
+                  </li>
+                </ul>
               </div>
+            </div>
           </div>
-          <div class="col-sm-12 col-md-4 section-md-t3">
-              <div class="widget-a">
-                  <div class="w-header-a">
-                      <h3 class="w-title-a text-brand">¡Suscríbete!</h3>
+        </div>
+        <div class="col-sm-12 col-md-4 section-md-t3">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">¡Suscríbete!</h3>
+            </div>
+            <div class="w-body-a">
+              <p class="w-text-a color-text-a">Recibe nuestras últimas novedades, promociones y ofertas especiales
+                directamente en tu bandeja de entrada.</p>
+              <form action="#" method="post" class="subscribe" id="correoSub">
+                <div class="input-group">
+                  <input type="email" class="form-control" id="emailSub" placeholder="Tu correo electrónico">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Suscribirse</button>
                   </div>
-                  <div class="w-body-a">
-                      <p class="w-text-a color-text-a">Recibe nuestras últimas novedades, promociones y ofertas especiales directamente en tu bandeja de entrada.</p>
-                      <form action="#" method="post" class="subscribe">
-                          <div class="input-group">
-                              <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
-                              <div class="input-group-append">
-                                  <button class="btn btn-primary" type="submit">Suscribirse</button>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
+                </div>
+              </form>
+            </div>
           </div>
+        </div>
       </div>
-  </div>
-</section>
-<footer>
-  <div class="container">
+    </div>
+  </section>
+  <footer>
+    <div class="container">
       <div class="row">
-          <div class="col-md-12">
-              <div class="socials-a">
-                  <ul class="list-inline">
-                      <li class="list-inline-item">
-                          <a href="https://www.facebook.com/profile.php?id=100072291438360">
-                              <i class="bi bi-facebook" aria-hidden="true"></i>
-                          </a>
-                      </li>
-                      <li class="list-inline-item">
-                          <a href="https://www.instagram.com/secretslu.cr/?hl=es">
-                              <i class="bi bi-instagram" aria-hidden="true"></i>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-              <div class="copyright-footer">
-                  <p class="copyright color-text-a">
-                      &copy; Copyright
-                      <span class="color-a">Secret Garden´s Lu</span> Todos los derechos reservados.
-                  </p>
-              </div>
-              <div class="credits">
-                  <!--
+        <div class="col-md-12">
+          <div class="socials-a">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/profile.php?id=100072291438360">
+                  <i class="bi bi-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/secretslu.cr/?hl=es">
+                  <i class="bi bi-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="copyright-footer">
+            <p class="copyright color-text-a">
+              &copy; Copyright
+              <span class="color-a">Secret Garden´s Lu</span> Todos los derechos reservados.
+            </p>
+          </div>
+          <div class="credits">
+            <!--
       All the links in the footer should remain intact.
       You can delete the links only if you purchased the pro version.
       Licensing information: https://bootstrapmade.com/license/
       Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
     -->
-                  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-              </div>
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
           </div>
+        </div>
       </div>
-  </div>
-</footer><!-- End  Footer -->
+    </div>
+  </footer><!-- End  Footer -->
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

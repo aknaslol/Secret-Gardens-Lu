@@ -170,7 +170,37 @@ a:hover {
   margin: 0 10px; 
 }
 
-.swiper-wrapper1{
+.marcas{
+  width: 100%;
+}
+
+.embed-responsive {
+  position: relative;
+  display: block;
+  max-width: 1200px;
+  padding-bottom: 30.25%; /* Proporción de aspecto 16:9 */
+}
+
+.embed-responsive .embed-responsive-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+  .embed-responsive {
+    max-width: 90%;
+    padding-bottom: 50.25%;
+    
+  }
+}
+
+.swiper-wrapper1 {
+  display: flex; /* Hace que las imágenes se muestren en línea */
+  transition: transform 0.5s ease; /* Agrega una transición suave al desplazamiento */
   justify-content: center;
   align-items: center;
 }
@@ -179,6 +209,17 @@ a:hover {
   .imagen {
     display: none;
   }
+}
+
+@media (max-width: 768px) {
+  .embed-responsive {
+    width: 100%; /* Cambia la proporción para dispositivos móviles */
+  }
+}
+
+#map{
+  width: 500px;
+  height: 100%;
 }
 
 /*------/ Nav Pills  /------*/
@@ -568,7 +609,7 @@ a:hover {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid #f2f2f2;
-  border-top: 6px solid #2eca6a;
+  border-top: 6px solid #b373af;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -592,6 +633,10 @@ a:hover {
   transition: 0.5s ease;
 }
 
+#btn_footer{
+  background-color: #b373af;
+}
+
 .btn.btn-a,
 .btn.btn-b {
   border-radius: 0;
@@ -606,7 +651,7 @@ a:hover {
 }
 
 .btn.btn-a:hover {
-  background-color: #2eca6a;
+  background-color: #b373af;
   color: #000000;
 }
 
@@ -2106,6 +2151,11 @@ a:hover {
   border-color: #2eca6a;
 }
 
+.btn-rosado {
+  background-color: #b373af !important; 
+  color: white; 
+}
+
 .php-email-form .error-message {
   display: none;
   color: #fff;
@@ -2164,7 +2214,7 @@ a:hover {
 
 .php-email-form .form-control:focus {
   box-shadow: none;
-  border-color: #2eca6a;
+  border-color: #c58edb;
 }
 
 @keyframes animate-loading {
