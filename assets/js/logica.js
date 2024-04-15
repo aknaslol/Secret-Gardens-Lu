@@ -23,9 +23,9 @@ function enviarFormulario() {
     var tema = document.getElementById('tema').value.trim();
     var mensaje = document.getElementById('mensaje').value.trim();
     var genero = document.querySelector('input[name="genero"]:checked');
+    var fechaNacimiento = document.getElementById('fecha_nacimiento').value;
 
-
-    if (nombre === '' || email === '' || tema === '' || mensaje === '' || !genero) {
+    if (nombre === '' || email === '' || tema === '' || mensaje === '' || !genero || fechaNacimiento === '') {
         Swal.fire({
             title: '¡Error!',
             text: 'Por favor, complete todos los campos necesarios.',
@@ -35,7 +35,7 @@ function enviarFormulario() {
             customClass: {
                 confirmButton: 'btn-rosado'
             }
-        })
+        });
         return;
     }
 
@@ -44,6 +44,24 @@ function enviarFormulario() {
         Swal.fire({
             title: '¡Error!',
             text: 'Por favor, introduzca un correo electrónico válido.',
+            icon: 'error',
+            iconColor: '#ff69b4',
+            confirmButtonText: 'Aceptar',
+            customClass: {
+                confirmButton: 'btn-rosado'
+            }
+        });
+        return;
+    }
+
+    var fechaNacimientoDate = new Date(fechaNacimiento);
+    var fechaActual = new Date();
+
+    // Compara la fecha de nacimiento con la fecha actual
+    if (fechaNacimientoDate >= fechaActual) {
+        Swal.fire({
+            title: '¡Error!',
+            text: 'La fecha de nacimiento debe ser anterior a la fecha actual.',
             icon: 'error',
             iconColor: '#ff69b4',
             confirmButtonText: 'Aceptar',
@@ -68,6 +86,7 @@ function enviarFormulario() {
 
     setTimeout(limpiarCampos, 500);
 }
+
 
 
 //Metodo que limpia los campos del html de contacto.
